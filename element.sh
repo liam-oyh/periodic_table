@@ -30,7 +30,7 @@ MAIN_MENU(){
     fi
   else
     # check if the input string is symbol
-    if [[ ${#INPUT} <=2 ]]
+    if [[ ${#INPUT} < 3 ]]
     then
        E_SYMBOL=$(echo $INPUT | sed -r 's/^ *| *$//g')
        E_ATOMICNUM=$(echo $($PSQL "SELECT atomic_number FROM elements WHERE symbol='$INPUT'") | sed -r 's/^ *| *$//g')
